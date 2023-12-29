@@ -33,7 +33,7 @@ pub fn extend(attr: TokenStream, mut item: TokenStream) -> TokenStream {
 	let field_name = args.field_name;
 	item.extend::<TokenStream>(
 		quote! {
-			use core::ops::{Deref, DerefMut};
+			use ::core::ops::{Deref, DerefMut};
 			
 			impl Deref for #struct_name {
 				type Target = #target;
