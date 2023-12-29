@@ -33,9 +33,7 @@ pub fn extend(attr: TokenStream, mut item: TokenStream) -> TokenStream {
 	let field_name = args.field_name;
 	item.extend::<TokenStream>(
 		quote! {
-			use ::core::ops::{Deref, DerefMut};
-			
-			impl Deref for #struct_name {
+			impl ::core::ops::Deref for #struct_name {
 				type Target = #target;
 				
 				fn deref(&self) -> &Self::Target {
@@ -43,7 +41,7 @@ pub fn extend(attr: TokenStream, mut item: TokenStream) -> TokenStream {
 				}
 			}
 			
-			impl DerefMut for #struct_name {
+			impl ::core::ops::DerefMut for #struct_name {
 				fn deref_mut(&mut self) -> &mut Self::Target {
 					&mut self.#field_name
 				}
@@ -51,11 +49,11 @@ pub fn extend(attr: TokenStream, mut item: TokenStream) -> TokenStream {
 			
 			impl #struct_name {
 				pub fn _super(&self) -> &#target {
-					self.deref()
+					<Self as ::core::ops::Deref>::deref(self)
 				}
 				
 				pub fn _super_mut(&mut self) -> &mut #target {
-					self.deref_mut()
+					<Self as ::core::ops::DerefMut>::deref_mut(self)
 				}
 			}
 		}.into()
