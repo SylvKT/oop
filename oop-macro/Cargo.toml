@@ -3,7 +3,7 @@ name = "oop-macro"
 description = "Macros for the oop package"
 keywords = ["syn", "oop", "macro", "inheritence", "inherit"]
 categories = ["data-structures", "rust-patterns"]
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 license = "MPL-2.0"
 

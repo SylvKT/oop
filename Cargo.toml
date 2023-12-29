@@ -5,11 +5,11 @@ repository = "https://github.com/SylvKT/oop"
 documentation = "https://docs.rs/oop/latest/oop"
 keywords = ["syn", "macro", "inheritence", "inherit"]
 categories = ["data-structures", "rust-patterns"]
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 license = "MPL-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-oop-macro = { version = "0.0.1", path = "oop-macro" }
+oop-macro = { version = "0.0.2", path = "oop-macro" }
